@@ -1,0 +1,42 @@
+[tool.poetry]
+name = "authproxy"
+version = "0.1.0"
+description = ""
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Authlib = "^0.15.2"
+httpx = "^0.16.1"
+starlette = "^0.14.1"
+uvicorn = "^0.13.3"
+itsdangerous = "^1.1.0"
+cryptography = "^3.3.1"
+
+[tool.poetry.dev-dependencies]
+ipdb = "^0.13.4"
+pylint = "^2.6.0"
+rope = "^0.18.0"
+mccabe = "^0.6.1"
+python-language-server = "^0.36.2"
+pyls-isort = "^0.2.0"
+pyls-black = "^0.4.6"
+pytest = "^6.2.1"
+requests = "^2.25.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+line_length = 88
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 88
+disable = "missing-function-docstring, missing-module-docstring, missing-class-docstring, too-few-public-methods"
+variable-rgx="[a-z_][a-z0-9_]{1,30}$"

@@ -1,0 +1,17 @@
+use_nix
+source $(pwd)/.venv/bin/activate
+unset PS1
+
+# Your env here
+export AUTHPROXY_DEBUG=true
+export AUTHPROXY_OAUTH_DOMAIN=dev-12312.us.auth0.com
+export AUTHPROXY_CALLBACK_URI=http://api.app.test:8080/auth/callback
+export AUTHPROXY_CLIENT_DEFAULT_REDIRECT=http://app.test:3000
+export AUTHPROXY_CORS_ALLOWED_ORIGINS='["http://app.test:3000", "http://app.test:19006", "http://localhost:1337"]'
+export AUTHPROXY_COOKIE_DOMAIN=app.test
+export AUTHPROXY_OAUTH_CLIENT_ID=7oCZFAHH4XZH8driPv95o8cIlMghJmyf
+export AUTHPROXY_OAUTH_CLIENT_SECRET=fh2VyL-BC-kTtY97It9CMI1Bbj8wv40j-J67SHAoss0WGG4DIicUeWb5PnJqFHPn
+export AUTHPROXY_OAUTH_SCOPE="openid profile email offline_access"
+export AUTHPROXY_OAUTH_AUDIENCE=app.api
+export AUTHPROXY_SESSION_SECRET=uQiXzpYX-dNTL8Ec8XZcVzbU2L6zxgdtur_7EWLRcpQ=
+export AUTHPROXY_ROUTES='[{"path": "/v1.0", "upstream_url": "http://localhost:9090", "upstream_base_path": "/v1.0"}, {"path": "/strapi", "upstream_url": "http://localhost:1337", "upstream_base_path": ""}, {"path": "/", "upstream_url": "http://localhost:4000", "upstream_base_path": ""}]'
