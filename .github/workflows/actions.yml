@@ -71,7 +71,7 @@ jobs:
           push: true
           target: prod
           tags: |
-            t0ster/authproxy:${{ steps.prep.outputs.branch }}.${{ steps.prep.outputs.shortsha }}
+            t0ster/authproxy:${{ steps.prep.outputs.shortsha }}
             t0ster/authproxy:latest
           cache-from: |
             type=local,src=/tmp/.buildx-cache
