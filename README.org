@@ -20,6 +20,6 @@ This POC is inspired by https://github.com/ory/oathkeeper
 * Requirements
 - Web app must be on the same root domain as authproxy
 
-* How to Run
+* Usage
 ** Configuration
 TODO

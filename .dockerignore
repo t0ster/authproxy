@@ -17,6 +17,7 @@ diagram.png
 .envrc
 .git
 .gitignore
+.github
 shell.nix
 docker.nix
 .pytest_cache
