@@ -45,7 +45,7 @@ jobs:
         uses: docker://ghcr.io/enricomi/publish-unit-test-result-action:v1.6
         if: always() # Or use "continue-on-error: true" in previous test step
         with:
-          access-token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           files: test-results/**/*.xml
       - name: Build and Push
         uses: docker/build-push-action@v2
