@@ -38,7 +38,7 @@ jobs:
           # For some reason for proper caching we need separate cache for test image
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-test
           load: true
-          target: stage-test
+          target: dev
       - name: Run Tests
         run: docker run --rm -v $(pwd):/test-results t0ster/authproxy:test pytest --junitxml test-results/test-results.xml
       - name: Publish Tests
@@ -51,6 +51,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          target: prod
           tags: |
             t0ster/authproxy:${{ steps.prep.outputs.branch }}.${{ steps.prep.outputs.shortsha }}
             t0ster/authproxy:latest
