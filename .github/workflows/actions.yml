@@ -48,7 +48,7 @@ jobs:
         if: always() # Or use "continue-on-error: true" in previous test step
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          files: test-results/**/*.xml
+          files: test-results/*.xml
       - name: Build and Push
         uses: docker/build-push-action@v2
         with:
