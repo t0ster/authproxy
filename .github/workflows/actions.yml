@@ -49,7 +49,7 @@ jobs:
           ls -la
           ls -la test-results
       - name: Publish Tests
-        uses: EnricoMi/publish-unit-test-result-action@v1.6
+        uses: docker://ghcr.io/enricomi/publish-unit-test-result-action:v1.6
         if: always() # Or use "continue-on-error: true" in previous test step
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
