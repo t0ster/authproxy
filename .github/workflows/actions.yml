@@ -1,0 +1,60 @@
+name: ci
+
+on: [push]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: Cache Docker layers
+        uses: actions/cache@v2
+        with:
+          path: |
+            /tmp/.buildx-cache
+            /tmp/.buildx-cache-test
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+      # - name: View cache
+      #   run: du -h /tmp/.buildx-cache && ls -la /tmp/.buildx-cache/blobs/sha256
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build for Test
+        uses: docker/build-push-action@v2
+        with:
+          tags: t0ster/authproxy:test
+          cache-from: |
+            type=local,src=/tmp/.buildx-cache
+            type=local,src=/tmp/.buildx-cache-test
+          # For some reason for proper caching we need separate cache for test image
+          cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-test
+          load: true
+          target: stage-test
+      - name: Run Tests
+        run: docker run --rm -v $(pwd):/test-results t0ster/authproxy:test pytest --junitxml test-results/test-results.xml
+      - name: Publish Tests
+        uses: docker://ghcr.io/enricomi/publish-unit-test-result-action:v1.6
+        if: always() # Or use "continue-on-error: true" in previous test step
+        with:
+          access-token: ${{ secrets.GITHUB_TOKEN }}
+          files: test-results/**/*.xml
+      - name: Build and Push
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: |
+            t0ster/authproxy:${{ steps.prep.outputs.branch }}.${{ steps.prep.outputs.shortsha }}
+            t0ster/authproxy:latest
+          cache-from: |
+            type=local,src=/tmp/.buildx-cache
+            type=local,src=/tmp/.buildx-cache-test
+          cache-to: type=local,mode=max,dest=/tmp/.buildx-cache
