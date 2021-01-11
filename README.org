@@ -3,8 +3,8 @@
 Simple reverse proxy which stores jwt token in encrypted cookie and adds `Authorization: Bearer <jwt_token>` header to requests to the upstream server.
 
 ** Features
-- Cloud (docker / kubernetes) friendly
-- Helm chart included
+- Cloud (Docker / Kubernetes) friendly
+- Helm chart included (TODO)
 
 * Reason
 - Reusable component for the micro-services architecture
@@ -13,5 +13,13 @@ Simple reverse proxy which stores jwt token in encrypted cookie and adds `Author
 - Possibility to discard session
 
 This POC is inspired by https://github.com/ory/oathkeeper
+
 * How
 [[file:diagram.png]]
+
+* Requirements
+- Web app must be on the same root domain as authproxy
+
+* How to Run
+** Configuration
+TODO
