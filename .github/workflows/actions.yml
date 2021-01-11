@@ -41,6 +41,13 @@ jobs:
           cache-to: type=local,mode=max,dest=/tmp/.buildx-cache-test
           load: true
           target: dev
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+      - name: Reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: docker run --rm t0ster/authproxy:test pylint *.py | reviewdog -reporter=github-pr-check -f pep8
       - name: Run Tests
         run: docker run --rm -v $(pwd):/test-results t0ster/authproxy:test pytest --junitxml /test-results/test-results/test-results.xml
       - name: check tests
