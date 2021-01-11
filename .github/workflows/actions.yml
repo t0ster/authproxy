@@ -43,6 +43,11 @@ jobs:
           target: dev
       - name: Run Tests
         run: docker run --rm -v $(pwd):/test-results t0ster/authproxy:test pytest --junitxml test-results/test-results.xml
+      - name: check tests
+        run: |
+          pwd
+          ls -la
+          ls -la test-result
       - name: Publish Tests
         uses: EnricoMi/publish-unit-test-result-action@v1.6
         if: always() # Or use "continue-on-error: true" in previous test step
