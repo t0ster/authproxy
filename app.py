@@ -22,6 +22,8 @@ from starlette.responses import RedirectResponse, Response
 from starlette.routing import Route
 from starlette.types import ASGIApp
 
+new_bug
+
 from logger import logger
 
 try:
