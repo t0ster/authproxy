@@ -8,13 +8,13 @@ tmp/
 build
 htmlcov
 
+*.org
 .dockerignore
 .envrc
 .envrc.default
 .git
 .github
 .gitignore
-.org
 .pytest_cache
 .reviewdog.yml
 .venv
