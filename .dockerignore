@@ -14,10 +14,11 @@ htmlcov
 .git
 .github
 .gitignore
+.org
 .pytest_cache
+.reviewdog.yml
 .venv
 Dockerfile
-README.org
 __pycache__
 diagram.png
 docker.nix
