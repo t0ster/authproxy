@@ -1,5 +1,4 @@
 FROM python:3-slim as requirements
-
 RUN pip install poetry
 COPY pyproject.toml poetry.lock /app/
 WORKDIR /app

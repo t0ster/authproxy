@@ -5,7 +5,7 @@ description = ""
 authors = ["Roman Dolgyi <roman@btsolutions.co>"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 Authlib = "^0.15.2"
 httpx = "^0.16.1"
 starlette = "^0.14.1"

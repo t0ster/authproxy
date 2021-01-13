@@ -2,4 +2,4 @@
 
 with pkgs;
 
-mkShell { buildInputs = [ poetry python3Packages.brotlipy ]; }
+mkShell { buildInputs = [ python39Packages.poetry python39Packages.brotlipy ]; }
