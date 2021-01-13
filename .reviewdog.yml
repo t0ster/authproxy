@@ -1,0 +1,7 @@
+runner:
+  pylint:
+    name: pylint
+    cmd: docker run --rm t0ster/authproxy:test pylint *.py
+    errorformat:
+      - "%f:%l:%c: %t%n: %m"
+    level: error
