@@ -24,6 +24,7 @@ from starlette.types import ASGIApp
 
 from logger import logger
 
+# TODO: fix
 try:
     settings = __import__(environ.get("AUTHPROXY_SETTINGS", "settings"))
 except ImportError:
