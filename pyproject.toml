@@ -15,7 +15,7 @@ cryptography = "^3.3.1"
 
 [tool.poetry.dev-dependencies]
 ipdb = "^0.13.4"
-pylint = "^2.6.0"
+pylint = {git = "https://github.com/PyCQA/pylint.git", rev = "168bee7"}
 rope = "^0.18.0"
 mccabe = "^0.6.1"
 python-language-server = "^0.36.2"

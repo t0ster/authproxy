@@ -435,18 +435,28 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "pylint"
-version = "2.6.0"
+version = "2.6.1.dev1"
 description = "python code static checker"
 category = "dev"
 optional = false
-python-versions = ">=3.5.*"
+python-versions = "~=3.5"
+develop = false
 
 [package.dependencies]
-astroid = ">=2.4.0,<=2.5"
+astroid = ">=2.4.0,<=2.6"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
 isort = ">=4.2.5,<6"
 mccabe = ">=0.6,<0.7"
 toml = ">=0.7.1"
+
+[package.extras]
+docs = ["sphinx (>=3.2,<4.0)", "python-docs-theme"]
+
+[package.source]
+type = "git"
+url = "https://github.com/PyCQA/pylint.git"
+reference = "168bee7"
+resolved_reference = "168bee7f23d9956c12b419b18aa9f5974151e3d7"
 
 [[package]]
 name = "pyls-black"
@@ -716,7 +726,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "11d4313c8ec1017b2dc5ff3ffa7672d83fc9e4abde16b405b1e3ca686b071f96"
+content-hash = "a2edfa221e7d57ebca35ba2030d76e99f9a397ea56f4193428ef12934aba8ec4"
 
 [metadata.files]
 appdirs = [
@@ -942,10 +952,7 @@ pygments = [
     {file = "Pygments-2.7.3-py3-none-any.whl", hash = "sha256:f275b6c0909e5dafd2d6269a656aa90fa58ebf4a74f8fcf9053195d226b24a08"},
     {file = "Pygments-2.7.3.tar.gz", hash = "sha256:ccf3acacf3782cbed4a989426012f1c535c9a90d3a7fc3f16d231b9372d2b716"},
 ]
-pylint = [
-    {file = "pylint-2.6.0-py3-none-any.whl", hash = "sha256:bfe68f020f8a0fece830a22dd4d5dddb4ecc6137db04face4c3420a46a52239f"},
-    {file = "pylint-2.6.0.tar.gz", hash = "sha256:bb4a908c9dadbc3aac18860550e870f58e1a02c9f2c204fdf5693d73be061210"},
-]
+pylint = []
 pyls-black = [
     {file = "pyls-black-0.4.6.tar.gz", hash = "sha256:33700e5ed605636ea7ba39188a1362d2f8602f7301f8f2b8544773886f965663"},
     {file = "pyls_black-0.4.6-py3-none-any.whl", hash = "sha256:8f5fb8fed503588c10435d2d48e2c3751437f1bdb8116134b05a4591c4899940"},
